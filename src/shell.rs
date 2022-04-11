@@ -4,7 +4,7 @@ pub fn sort<T>(arr: &mut Vec<T>, step: usize)
     where T: PartialOrd + Default {
     let mut step_tmp = step;
 
-    while step_tmp > 0 {
+    while step_tmp >= 1 {
         for i in step_tmp..arr.len() {
             let mut j = i;
             while j >= step_tmp {
@@ -16,6 +16,6 @@ pub fn sort<T>(arr: &mut Vec<T>, step: usize)
                 j -= step_tmp;
             }
         }
-        step_tmp -= 1;
+        step_tmp /= 3;
     }
 }
