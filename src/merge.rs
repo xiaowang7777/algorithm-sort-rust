@@ -2,7 +2,7 @@ use std::mem;
 use crate::less;
 
 pub fn sort<T>(arr: &mut Vec<T>)
-    where T: PartialOrd + Default + std::fmt::Debug {
+    where T: PartialOrd + Default {
     let mut aux: Vec<T> = Vec::new();
     for _ in 0..arr.len() {
         aux.push(T::default());
@@ -11,7 +11,7 @@ pub fn sort<T>(arr: &mut Vec<T>)
 }
 
 fn sort_util<T>(arr: &mut Vec<T>, aux: &mut Vec<T>, hi: usize, lo: usize)
-    where T: PartialOrd + Default + std::fmt::Debug {
+    where T: PartialOrd + Default {
     if hi >= lo {
         return;
     }
@@ -22,7 +22,7 @@ fn sort_util<T>(arr: &mut Vec<T>, aux: &mut Vec<T>, hi: usize, lo: usize)
 }
 
 fn merge<T>(arr: &mut Vec<T>, aux: &mut Vec<T>, hi: usize, lo: usize, mid: usize)
-    where T: PartialOrd + Default + std::fmt::Debug {
+    where T: PartialOrd + Default {
     for i in hi..lo + 1 {
         *aux.get_mut(i).expect("") = move_form_vec(arr, i);
     }
