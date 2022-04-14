@@ -1,4 +1,3 @@
-use std::fmt::Debug;
 use crate::{exch, less};
 
 pub fn sort<T>(arr: &mut Vec<T>)
@@ -22,11 +21,9 @@ fn partition<T>(arr: &mut Vec<T>, lo: usize, hi: usize) -> usize
     where T: PartialOrd + Default {
     let p = lo;
     let mut i = lo;
-    let mut j = hi + 1;
+    let mut j = hi;
 
     loop {
-        i += 1;
-        j -= 1;
         while less(arr, i, p) {
             if i == p {
                 break;
@@ -43,6 +40,8 @@ fn partition<T>(arr: &mut Vec<T>, lo: usize, hi: usize) -> usize
             break;
         }
         exch(arr, i, j);
+        i += 1;
+        j -= 1;
     }
     exch(arr, p, j);
     j
