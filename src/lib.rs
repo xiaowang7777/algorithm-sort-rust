@@ -4,6 +4,7 @@ pub mod insert;
 pub mod merge;
 pub mod selection;
 pub mod shell;
+pub mod quick;
 
 pub fn less<T>(arr: &Vec<T>, lo: usize, hi: usize) -> bool
     where
